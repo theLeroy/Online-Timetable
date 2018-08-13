@@ -40,6 +40,12 @@ h1{
 .btn:hover{
   background: darken($blue,20%);
 }
+.btn:visited {
+  background: darken($blue,20%);
+}
+.btn:checked {  
+  background: darken($blue,20%);
+}
 section.card{
   width: 80%;
   max-width: 400px;
