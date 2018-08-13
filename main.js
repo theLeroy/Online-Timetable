@@ -1,82 +1,4 @@
-var stundenPlan = {
-  days:[{},{
-    name: "Montag",
-    subjects: [{
-      teacher: "D. Stücklin",
-      room: "WST1-1-114",
-      from: "08:35",
-      to: "10:05",
-      theme: "Geschichte"
-    },
-    {
-      teacher: "Ch. Müller",
-      room: "WST1-1-114",
-      from: "10:25",
-      to: "11:55",
-      theme: "Marketing"
-    },
-    {
-      teacher: "B. Hofer",
-      room: "WST1-1-114",
-      from: "12:45",
-      to: "14:15",
-      theme: "Informatik"
-    },
-    {
-      teacher: "R. Siedler",
-      room: "WST1-1-114",
-      from: "14:40",
-      to: "16:10",
-      theme: "Wirtschaft"
-    }]
-  },{
-  name: "Dienstag",
-  subjects: [{
-    teacher: "S. Dunkel",
-    room: "WST1-1-401",
-    from: "08:35",
-    to: "10:05",
-    theme: "Multimedia Konzept"
-  },
-  {
-    teacher: "R. Siedler",
-    room: "WST1-1-401",
-    from: "10:25",
-    to: "12:50",
-    theme: "Rechnungswesen"
-  },
-  {
-    teacher: "T. Vulpi",
-    room: "WST1-1-114",
-    from: "13:40",
-    to: "14:25",
-    theme: "Deutsch"
-  },
-  {
-    teacher: "R. Schamberger",
-    room: "WST1-1-114",
-    from: "14:30",
-    to: "15:15",
-    theme: "Englisch"
-  },
-  {
-    teacher: "O. Genzoni",
-    room: "WST11 H3",
-    from: "15:30",
-    to: "17:00",
-    theme: "Sport"
-  },
-  {
-    teacher: "R. Siedler & R. Schamberger",
-    room: "WST1-1-114",
-    from: "17:05",
-    to: "17:50",
-    theme: "IdPA"
-  }]
-  }
-  ]
-}
-
+var opi = 0;
 var $from = document.querySelector("header.from");
 var $theme = document.querySelector("h2.theme");
 var $room = document.querySelector("span.room");
@@ -111,6 +33,7 @@ function nextSubject(nsd,nsh,nsmin) {
 }
 
 var d = new Date();
+// var nSub = nextSubject(d.getDay(),d.getHours(),d.getMinutes());
 var nSub = nextSubject(d.getDay(),d.getHours(),d.getMinutes());
 // var nSub = nextSubject(1,13,55);
 
@@ -124,13 +47,16 @@ function fillBox(pSub) {
      $room.innerHTML = pSub.room;
      $teacher.innerHTML = pSub.teacher;
   }else {
+    opi = 1;
     alert("du hast keine Schule (mehr)");
   }
 }
 console.log(beforeSubs);
 $btn.addEventListener("click", function(){
   console.log(beforeSubs);
-  generateList(beforeSubs, $before);
+    generateList(beforeSubs, $before);
+
+  }
 });
 
 generateList(nSub, $next, 1);
@@ -141,4 +67,10 @@ function generateList(pSubs,elm,sPoint = 0) {
     // dump += nSub[i].from+" - "+nSub[i].to+" "+nSub[i].theme+"<br>";
   }
   elm.innerHTML = dump;
+}
+
+function Days() {
+  for (var i = 1; i < stundenPlan["days"].length; i++) {
+    stundenPlan["days"][i]["name"]
+  }
 }
