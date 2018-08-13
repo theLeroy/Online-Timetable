@@ -60,7 +60,6 @@ function fillBox(pSub) {
      $teacher.innerHTML = pSub.teacher;
   }else {
     opi = 1;
-    alert("du hast keine Schule (mehr)");
   }
 }
 console.log(beforeSubs);
