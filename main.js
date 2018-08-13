@@ -7,7 +7,8 @@ var $to = document.querySelector("footer.to");
 var $to = document.querySelector("footer.to");
 var $next = document.querySelector(".next");
 var $before = document.querySelector(".before");
-var $btn = document.querySelector(".btn.show-before");
+var $btn = document.querySelector("#btn-1");
+var $btnC = document.querySelector(".btnC");
 var beforeSubs = Array();
 
 function nextSubject(nsd,nsh,nsmin) {
@@ -55,8 +56,6 @@ console.log(beforeSubs);
 $btn.addEventListener("click", function(){
   console.log(beforeSubs);
     generateList(beforeSubs, $before);
-
-  }
 });
 
 generateList(nSub, $next, 1);
@@ -70,7 +69,10 @@ function generateList(pSubs,elm,sPoint = 0) {
 }
 
 function Days() {
+  let st = $btnC.innerHTML;
   for (var i = 1; i < stundenPlan["days"].length; i++) {
-    stundenPlan["days"][i]["name"]
+    st = st + '<button type="button" id="btn-'+i+'"class="btn show-day">'+stundenPlan["days"][i]["name"]+'</button>';
   }
+  $btnC.innerHTML = st;
 }
+Days();
